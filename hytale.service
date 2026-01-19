@@ -1,0 +1,17 @@
+[Unit]
+Description=Hytale Server
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=forking
+User=usuario
+ExecStart=/usr/bin/bash /home/<your_user>/hytale-server/start_server.sh
+ExecStop=/usr/bin/bash /home/<your_user>/hytale-server/stop_server.sh
+WorkingDirectory=/home/<your_user>/hytale-server/Server
+Restart=always
+RestartSec=20
+TimeoutStartSec=600
+
+[Install]
+WantedBy=multi-user.target
